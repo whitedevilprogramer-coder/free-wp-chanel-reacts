@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReactHub — WhatsApp Channel Reactions</title>
+<meta name="theme-color" content="#07110e">
+<style>
+:root{color-scheme:dark;--bg:#07110e;--panel:#101d18;--panel2:#14251e;--line:#263b31;--muted:#9bb3a6;--green:#25d366;--mint:#a6ffd0;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#1a4832 0,transparent 45%),var(--bg);color:#effff5;font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+.wrap{width:min(960px,100% - 32px);margin:auto;padding:28px 0 56px}.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px}.brand{display:flex;gap:11px;align-items:center;font-weight:800;font-size:19px;letter-spacing:-.5px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#35e47a,#079451);display:grid;place-items:center;color:#032211;font-size:22px;box-shadow:0 8px 30px #1cc76635}.pill{border:1px solid #2d5941;background:#102b1d;color:#a9f5c2;border-radius:999px;padding:7px 12px;font-size:12px}
+.hero{text-align:center;margin:20px auto 28px;max-width:700px}.eyebrow{color:var(--green);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-2px;margin:12px 0}.hero h1 span{color:var(--green)}.hero p{color:var(--muted);max-width:570px;margin:0 auto;font-size:16px}
+.card{background:linear-gradient(145deg,#12221a,#0c1712);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 24px 80px #0003}.field{margin-bottom:23px}.labelrow{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}.label{font-size:13px;font-weight:750;color:#d9f5e4}.hint{font-size:12px;color:var(--muted)}input,select{width:100%;background:#09130e;border:1px solid #2b4235;color:#effff5;border-radius:13px;padding:15px 14px;font:inherit;outline:none;transition:.2s}input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px #25d3661c}select{cursor:pointer}.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mode{border:1px solid #2b4235;background:#0a1510;border-radius:15px;padding:14px;text-align:left;cursor:pointer;color:#eafff0}.mode strong{display:block;font-size:14px;margin-bottom:4px}.mode small{color:var(--muted);font-size:12px}.mode.active{border-color:var(--green);background:#12301e;box-shadow:inset 0 0 0 1px #25d36625}.emoji-grid{display:flex;flex-wrap:wrap;gap:9px}.emoji{width:47px;height:47px;border:1px solid #2b4235;background:#09130e;border-radius:13px;font-size:24px;cursor:pointer;transition:.15s}.emoji:hover{transform:translateY(-2px);border-color:#6a9879}.emoji.selected{background:#163c25;border-color:var(--green);box-shadow:0 0 0 2px #25d36622}.customrow{display:flex;gap:9px;margin-top:12px}.customrow input{flex:1}.smallbtn{border:1px solid #2c4a38;background:#183624;color:#caffd9;padding:0 16px;border-radius:12px;font-weight:700;cursor:pointer}.selectedline{margin-top:10px;color:var(--muted);font-size:12px}.checkrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 15px;background:#0a1510;border:1px solid #243a2d;border-radius:14px}.checkrow p{margin:0;font-size:13px;font-weight:700}.checkrow small{display:block;color:var(--muted);font-weight:400;margin-top:3px}.checkrow select{width:auto;min-width:120px;padding:10px}
+.submit{width:100%;border:0;border-radius:14px;padding:16px;background:linear-gradient(100deg,#31e477,#13b95b);color:#042312;font-weight:900;font-size:16px;cursor:pointer;box-shadow:0 10px 30px #25d36624;transition:.2s}.submit:hover{filter:brightness(1.06);transform:translateY(-1px)}.submit:disabled{opacity:.6;cursor:wait;transform:none}.status{display:none;margin-top:18px;padding:15px;border-radius:13px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}.status.show{display:block}.status.ok{background:#102e1c;border:1px solid #28653d;color:#c5ffd5}.status.err{background:#301819;border:1px solid #783737;color:#ffd0d0}.status.wait{background:#15261b;border:1px solid #3a5b43;color:#d4f9df}.response{margin-top:12px;background:#07100c;border:1px solid #22382b;border-radius:12px;padding:12px;max-height:230px;overflow:auto;color:#b8d7c3;font:12px/1.5 ui-monospace,monospace}
+.footer{text-align:center;color:#718c7c;font-size:12px;margin-top:22px}.notice{margin-top:18px;padding:13px 15px;border:1px solid #5c4a25;background:#292211;color:#e9d6a1;border-radius:13px;font-size:12px}.hide{display:none!important}
+@media(max-width:560px){.wrap{width:calc(100% - 20px);padding-top:17px}.nav{margin-bottom:25px}.hero h1{letter-spacing:-1.2px}.modes{gap:8px}.mode{padding:12px}.checkrow{align-items:flex-start;flex-direction:column}.checkrow select{width:100%}.emoji{width:43px;height:43px}}
+</style></head>
+<body><main class="wrap">
+<header class="nav"><div class="brand"><div class="logo">⚡</div><div>React<span style="color:var(--green)">Hub</span></div></div><div class="pill">● API-powered tool</div></header>
+<section class="hero"><div class="eyebrow">WhatsApp Channel Tool</div><h1>Boost your post with<br><span>reactions.</span></h1><p>Choose your channel post, pick the emojis, and send your request with a clean, simple workflow.</p></section>
+<section class="card">
+<div class="field"><div class="labelrow"><label class="label" for="postUrl">WhatsApp Channel Post URL</label><span class="hint">Required</span></div><input id="postUrl" type="url" placeholder="https://whatsapp.com/channel/..." autocomplete="url"></div>
+<div class="field"><div class="labelrow"><span class="label">Choose reaction mode</span><span class="hint">Select one</span></div><div class="modes"><button class="mode active" data-mode="normal" type="button"><strong>⚡ Standard React</strong><small>Use the standard reaction endpoint</small></button><button class="mode" data-mode="pro" type="button"><strong>🚀 Pro React</strong><small>Use the Pro endpoint</small></button></div></div>
+<div class="field"><div class="labelrow"><span class="label">Select emojis</span><span class="hint">Maximum 6</span></div><div id="emojiGrid" class="emoji-grid"></div><div class="customrow"><input id="customEmoji" placeholder="Add custom emoji (e.g. 🥹✨)" maxlength="24"><button class="smallbtn" id="addEmoji" type="button">Add</button></div><div class="selectedline" id="selectedLine">0 of 6 selected</div></div>
+<div class="field"><div class="checkrow"><div><p>Did you add “Reactions” to the post description?</p><small>Some services require this keyword before reacting.</small></div><select id="keyword"><option value="yes">Yes, added</option><option value="no">Not yet</option></select></div></div>
+<div class="field"><div class="labelrow"><span class="label">Secure backend connection</span><span class="hint">Server-side API key</span></div><div class="checkrow"><div><p>API key protected on the server</p><small>Set SASA_API_KEY in Vercel Project Settings → Environment Variables.</small></div><span class="pill">🔒 Protected</span></div></div>
+<button class="submit" id="runBtn" type="button">⚡ React to my post</button>
+<div id="status" class="status"></div><pre id="response" class="response hide"></pre>
+<div class="notice">Security: requests go through the Vercel backend. The provider API key stays in the server environment and is not sent to the browser.</div>
+</section><div class="footer">ReactHub · Use only with posts and services you are authorized to interact with.</div>
+</main>
+<script>
+
+const available=['❤️','👍','😂','😮','😢','🙏','🔥','🥰','👏','💯','✨','🎉'];
+let mode='normal', selected=['❤️','🔥'];
+const grid=document.getElementById('emojiGrid'), statusEl=document.getElementById('status'), responseEl=document.getElementById('response'), runBtn=document.getElementById('runBtn');
+function renderEmojis(){grid.innerHTML='';available.forEach(e=>{const b=document.createElement('button');b.type='button';b.className='emoji'+(selected.includes(e)?' selected':'');b.textContent=e;b.title=e;b.onclick=()=>toggleEmoji(e);grid.appendChild(b)});document.getElementById('selectedLine').textContent=`${selected.length} of 6 selected · ${selected.join(' ')||'No emojis selected'}`}
+function toggleEmoji(e){if(selected.includes(e))selected=selected.filter(x=>x!==e);else if(selected.length<6)selected.push(e);else showStatus('Choose up to 6 emojis only.','err');renderEmojis()}
+document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('active',x===b))}));
+document.getElementById('addEmoji').onclick=()=>{const val=document.getElementById('customEmoji').value.trim();if(!val)return;[...val].forEach(e=>{if(!selected.includes(e)&&selected.length<6)selected.push(e)});document.getElementById('customEmoji').value='';renderEmojis()};
+function showStatus(msg,type){statusEl.className='status show '+type;statusEl.textContent=msg}
+renderEmojis();
+runBtn.onclick=async()=>{
+ const url=document.getElementById('postUrl').value.trim(), keyword=document.getElementById('keyword').value;
+ if(!url){showStatus('Please enter the WhatsApp Channel post URL.','err');return}
+ try{const parsed=new URL(url);if(!['http:','https:'].includes(parsed.protocol))throw new Error()}catch{showStatus('Please enter a valid URL beginning with https://','err');return}
+ if(!/whatsapp\.com|whatsapp\.net/i.test(new URL(url).hostname)){showStatus('That does not look like a WhatsApp link. Please check the URL.','err');return}
+ if(!selected.length){showStatus('Please select at least one emoji.','err');return}
+ if(keyword==='no'){showStatus('Please add the word “Reactions” to the post description if your API provider requires it, then try again.','err');return}
+ runBtn.disabled=true;runBtn.textContent='⏳ Sending request…';responseEl.classList.add('hide');showStatus(`Sending ${mode.toUpperCase()} request…`,'wait');
+ try{
+  const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),25000);
+  const res=await fetch('/api/react',{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({url,emojis:selected,mode})});
+  clearTimeout(timer);
+  const body=await res.text();let data;try{data=JSON.parse(body)}catch{data=body}
+  responseEl.textContent=typeof data==='string'?data:JSON.stringify(data,null,2);responseEl.classList.remove('hide');
+  if(!res.ok){showStatus(`Provider returned HTTP ${res.status}. This endpoint did not confirm success. Check the API status/parameters, or try the other mode.\n\n${typeof data==='string'?data:JSON.stringify(data)}`,'err')}
+  else {
+   const bad=!data || data.status===false || /error|failed|invalid|denied|unsuccessful|maintenance/i.test(typeof data==='string'?data:JSON.stringify(data));
+   showStatus(bad?'The provider did not confirm success. Review the API response below.':'Provider returned a success response. Review the details below.',bad?'err':'ok')
+  }
+ }catch(e){showStatus(e.name==='AbortError'?'Request timed out after 25 seconds.':`Request failed: ${e.message}\n\nCheck the Vercel function logs and provider status.`,'err')}
+ finally{runBtn.disabled=false;runBtn.textContent='⚡ React to my post'}
+};
+</script></body></html>
